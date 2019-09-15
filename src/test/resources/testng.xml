@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="WinAppDriverSuite" verbose="1" >
+
+
+    <test name="WinAppDriverSuite" annotations="Group1">
+
+        <groups>
+            <define name="Group1"/>
+        </groups>
+
+        <classes>
+            <class name="Calculator" />
+        </classes>
+
+    </test>
+
+</suite>
