@@ -1,0 +1,29 @@
+apply plugin: 'java'
+sourceCompatibility = JavaVersion.VERSION_1_8
+group = 'winappdrivertestngtest'
+defaultTasks "test"
+[compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+
+repositories {
+    jcenter()
+    mavenCentral()
+    mavenLocal()
+}
+dependencies {
+    testImplementation "org.testng:testng:7.0.0"
+    testImplementation "org.seleniumhq.selenium:selenium-java:+"
+    testImplementation "io.appium:java-client:+"
+}
+
+compileTestJava {
+    options.compilerArgs += ["-proc:none"]
+}
+
+test {
+    useTestNG()
+    dependsOn "clean"       // Always run tests even if nothing has changed
+    options.suites "src/test/resources/testng.xml"
+
+    // Show "PASSED", "SKIPPED", "FAILED" test results in console
+    testLogging { events "passed", "skipped", "failed" }
+}
