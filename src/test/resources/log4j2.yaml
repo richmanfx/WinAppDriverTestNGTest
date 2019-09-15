@@ -1,0 +1,22 @@
+Configutation:
+  name: DefaultLogConfiguration
+
+  Appenders:
+    Console:
+      name: StdoutAppender
+      target: SYSTEM_OUT
+      PatternLayout:
+        charset: "UTF-8"
+        pattern: "=--->   %d{HH:mm:ss XXX} %-5p %c.java:%L - %m%n"
+    File:
+      name: FileAppender
+      fileName: "logs/WinAppDriver.log"
+      PatternLayout:
+        pattern: "%d{HH:mm:ss} %-5p %c{1.}.java:%L - %m%n"
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+        - ref: "StdoutAppender"
+#        - ref: "FileAppender"
